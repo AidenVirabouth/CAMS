@@ -5,6 +5,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+<<<<<<< HEAD
         System.out.println("=== CAMS (Course Enrollment & Academic Management System) ===");
         System.out.println("Bootstrapping sample data from Person 1 backend...\n");
 
@@ -102,5 +103,11 @@ public class Main {
         if (math220 != null) {
             for (int i = 0; i < 10; i++) math220.incrementEnrollment();
         }
+=======
+        System.out.println("Welcome to CAMS!");
+        System.out.println("Change #1 – practicing Git push.");
+
+        // Later: call your menu and other logic here
+>>>>>>> c194c52d87e7a74fed324ec577347a75cb82588e
     }
 }
