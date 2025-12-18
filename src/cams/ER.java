@@ -1,10 +1,10 @@
 package cams;
 
 /**
+ * ER = Enrollment Record
  * Represents a single enrollment of a student in a course.
- * Person 1 owns this file (Person 2 will use it for logic).
  */
-public class EnrollmentRecord {
+public class ER {
 
     public enum Status {
         ENROLLED,
@@ -18,7 +18,7 @@ public class EnrollmentRecord {
     private Status status;
     private Double grade; // optional, can be null
 
-    public EnrollmentRecord(String studentId, String courseCode, Status status) {
+    public ER(String studentId, String courseCode, Status status) {
         this.studentId = studentId;
         this.courseCode = courseCode;
         this.status = status;
@@ -51,7 +51,7 @@ public class EnrollmentRecord {
 
     @Override
     public String toString() {
-        return "EnrollmentRecord{" +
+        return "ER{" +
                "studentId='" + studentId + '\'' +
                ", courseCode='" + courseCode + '\'' +
                ", status=" + status +

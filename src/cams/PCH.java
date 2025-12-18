@@ -6,20 +6,15 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 /**
- * Wrapper around a heap structure to track most popular courses
- * by current enrollment. Person 1 owns this file.
+ * PCH = Popular Course Heap
+ * Tracks most popular courses by currentEnrollment.
  */
-public class PopularCourseHeap {
+public class PCH {
 
-    // Max-heap based on currentEnrollment
     private final PriorityQueue<Coursee> heap = new PriorityQueue<>(
             Comparator.comparingInt(Coursee::getCurrentEnrollment).reversed()
     );
 
-    /**
-     * Rebuilds the heap from a collection of courses.
-     * Call this after major enrollment changes if needed.
-     */
     public void buildHeap(Iterable<Coursee> courses) {
         heap.clear();
         for (Coursee c : courses) {
@@ -27,10 +22,6 @@ public class PopularCourseHeap {
         }
     }
 
-    /**
-     * Return the top k most popular courses (by enrollment).
-     * If there are fewer than k courses, return all of them.
-     */
     public List<Coursee> getTopK(int k) {
         List<Coursee> result = new ArrayList<>();
         PriorityQueue<Coursee> copy = new PriorityQueue<>(heap);
@@ -40,9 +31,4 @@ public class PopularCourseHeap {
         }
         return result;
     }
-
-    /**
-     * Optionally, you can call this when a single course's enrollment changes.
-     * Easiest approach: rebuild the heap using buildHeap().
-     */
 }
