@@ -3,8 +3,7 @@ package cams;
 import java.util.Objects;
 
 /**
- * Represents a course in the CAMS system.
- * Uses the name Coursee to match your project.
+ * Coursee = course in CAMS.
  */
 public class Coursee {
     private String code;
@@ -13,10 +12,7 @@ public class Coursee {
     private int credits;
     private int capacity;
 
-    // Track how many students are currently enrolled
     private int currentEnrollment;
-
-    // Simple department field (Person 2 can use this for filtering / sorting)
     private String department;
 
     public Coursee(String code,
@@ -34,7 +30,7 @@ public class Coursee {
         this.currentEnrollment = 0;
     }
 
-    // ----- Basic getters/setters -----
+    // ----- Getters/setters -----
 
     public String getCode() {
         return code;
@@ -84,7 +80,7 @@ public class Coursee {
         this.department = department;
     }
 
-    // ----- Enrollment count helpers -----
+    // ----- Enrollment helpers -----
 
     public boolean isFull() {
         return currentEnrollment >= capacity;

@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Binary Search Tree of courses keyed by course code.
- * Person 1 owns this file. You can later upgrade this to AVL for self-balancing.
+ * Binary Search Tree of Coursee objects keyed by course code.
  */
 public class CourseTree {
 
@@ -35,7 +34,6 @@ public class CourseTree {
         } else if (cmp > 0) {
             node.right = insertRecursive(node.right, course);
         } else {
-            // same code: replace or ignore (here we replace)
             node.course = course;
         }
         return node;
@@ -56,9 +54,6 @@ public class CourseTree {
         return null;
     }
 
-    /**
-     * In-order traversal (sorted by course code).
-     */
     public List<Coursee> inOrder() {
         List<Coursee> result = new ArrayList<>();
         inOrderRecursive(root, result);
@@ -71,7 +66,4 @@ public class CourseTree {
         result.add(node.course);
         inOrderRecursive(node.right, result);
     }
-
-    // TODO: For self-balancing requirement, you can later convert this
-    // to an AVL tree by adding height fields and rotations.
 }

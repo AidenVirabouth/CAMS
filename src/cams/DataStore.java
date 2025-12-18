@@ -4,8 +4,6 @@ import java.util.*;
 
 /**
  * Central storage for all students and courses.
- * Uses HashMaps and Sets to provide O(1) lookups where possible.
- * Person 1 owns this file.
  */
 public class DataStore {
 
@@ -52,8 +50,7 @@ public class DataStore {
     }
 
     public void removeCourse(String courseCode) {
-        Coursee removed = coursesByCode.remove(courseCode);
-        // you could update departments set here if needed
+        coursesByCode.remove(courseCode);
     }
 
     public Collection<Coursee> getAllCourses() {

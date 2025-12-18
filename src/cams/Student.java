@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /**
  * Represents a student in the CAMS system.
- * Person 1 owns this file.
+ * Uses a singly linked list of ER (enrollment records).
  */
 public class Student {
     private String id;
@@ -14,17 +14,14 @@ public class Student {
     private String major;
     private int year;
 
-    // Singly-linked list of current enrollments (simple manual implementation)
+    // Singly-linked list of current enrollments
     private EnrollmentNode enrollmentHead;
 
-    // Optional: you can later add a doubly linked list for history
-    // private EnrollmentHistoryNode historyHead;
-
     private static class EnrollmentNode {
-        EnrollmentRecord record;
+        ER record;
         EnrollmentNode next;
 
-        EnrollmentNode(EnrollmentRecord record) {
+        EnrollmentNode(ER record) {
             this.record = record;
         }
     }
@@ -67,7 +64,7 @@ public class Student {
     /**
      * Add a new enrollment to the front of the linked list.
      */
-    public void addEnrollment(EnrollmentRecord record) {
+    public void addEnrollment(ER record) {
         EnrollmentNode node = new EnrollmentNode(record);
         node.next = enrollmentHead;
         enrollmentHead = node;
@@ -97,8 +94,8 @@ public class Student {
     /**
      * Return a list view of current enrollments for easier use.
      */
-    public List<EnrollmentRecord> getCurrentEnrollments() {
-        List<EnrollmentRecord> result = new ArrayList<>();
+    public List<ER> getCurrentEnrollments() {
+        List<ER> result = new ArrayList<>();
         EnrollmentNode curr = enrollmentHead;
         while (curr != null) {
             result.add(curr.record);
